@@ -653,14 +653,10 @@ function _typeof(obj) {
       // has module unable identify ie11 and Edge
       var oWin = _window.top.open("about:blank", "_blank");
 
-      oWin._document.charset = "utf-8";
-
-      oWin._document.write(text);
-
-      oWin._document.close();
-
-      oWin._document.execCommand("SaveAs", filename);
-
+      oWin.document.charset = "utf-8";
+      oWin.document.write(text);
+      oWin.document.close();
+      oWin.document.execCommand("SaveAs", filename);
       oWin.close();
     } else if (has("ie") === 10 || isIE11() || isEdge()) {
       var BOM = "\uFEFF";
