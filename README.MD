@@ -19,8 +19,9 @@ import * as ExporHelper from "xxx/export-helper.js";
 
 ## 参数：
 
-- **filename** > - **String **【必填】。
-  需要导出或者下载的文件名。
+- **filename**
+  > - **String **【必填】。
+  >   需要导出或者下载的文件名。
 - **text**
   > - **String **【必填】。
       需要写入文件的内容。
@@ -38,13 +39,15 @@ import * as ExporHelper from "xxx/export-helper.js";
 
 ## 参数：
 
-- **data** > - **Array**【必填】。
-  需要进行编码的数据，同 csv.js 的参数作用一致，请具体参考 csv.js 文档。
+- **data**
+  > - **Array**【必填】。
+  >   需要进行编码的数据，同 csv.js 的参数作用一致，请具体参考 csv.js 文档。
 - **options**
   > - **object **【可选】。
       编码过程中的配置选项，默认为 {}。同csv.js的参数作用一致，请具体参考csv.js文档。
-- **filename** > - **String **【必填】。
-  需要导出或者下载的文件名，默认为 download.csv 。
+- **filename**
+  > - **String **【必填】。
+  >   需要导出或者下载的文件名，默认为 download.csv 。
 
 ## 返回值: 无。
 

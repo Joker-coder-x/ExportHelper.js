@@ -577,13 +577,14 @@
     const BOM = "\uFEFF";
     // Add BOM to text for open in excel correctly
     if (_window.Blob && _window.URL && _window.URL.createObjectURL) {
-      const csvData = new Blob([BOM + text], {
+      const data = new Blob([BOM + text], {
         type: mime,
       });
-      return URL.createObjectURL(csvData);
+      return URL.createObjectURL(data);
     } else {
+      const type = mime.slice(mime.lastIndexOf("/"));
       return (
-        "data:attachment/csv;charset=utf-8," + BOM + encodeURIComponent(text)
+        `data:attachment${type};charset=utf-8,` + BOM + encodeURIComponent(text)
       );
     }
   }
@@ -599,10 +600,10 @@
       oWin.close();
     } else if (has("ie") === 10 || isIE11() || isEdge()) {
       const BOM = "\uFEFF";
-      const csvData = new Blob([BOM + text], {
+      const data = new Blob([BOM + text], {
         type: mime,
       });
-      navigator.msSaveBlob(csvData, filename);
+      navigator.msSaveBlob(data, filename);
     } else {
       const link = _document.createElement("a");
       link.download = filename;

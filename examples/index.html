@@ -1,54 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <button id="exportCsv">导出cvs</button>
     <button id="exportTxt">导出txt</button>
-</body>
+  </body>
 
-<script src="../src/export-helper-min.js"></script>
+  <script src="../src/export-helper-min.js"></script>
 
-<script>
+  <script>
     const exportCsvButton = document.querySelector("#exportCsv"),
-        exportTxtButton = document.getElementById("exportTxt");
+      exportTxtButton = document.getElementById("exportTxt");
 
-    exportCsvButton.addEventListener("click", function() {
-        ExportHelper.exportCsv(data, {
-            header: true,
-        });
+    exportCsvButton.addEventListener("click", function () {
+      ExportHelper.exportCsv(data, {
+        header: true,
+      });
     });
 
-    exportTxtButton.addEventListener("click", function() {
-        ExportHelper.download(
-            "download.txt",
-            "this is test demo text!",
-            "text/plain"
-        );
+    exportTxtButton.addEventListener("click", function () {
+      ExportHelper.download(
+        "download.txt",
+        "this is test demo text!",
+        "text/plain"
+      );
     });
 
-    const data = [{
+    const data = [
+      {
         name: "mike",
         age: 18,
         hobby: "女",
         phone: "15932841821",
-    }, {
+      },
+      {
         name: "jhon",
         age: 19,
         hobby: "女",
         phone: "15932841821",
-    }, {
+      },
+      {
         name: "武松",
         age: 18,
         hobby: "潘金莲",
         phone: "15932841821",
-    }, ];
-</script>
-
+      },
+    ];
+  </script>
 </html>

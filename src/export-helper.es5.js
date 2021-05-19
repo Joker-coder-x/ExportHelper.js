@@ -632,13 +632,16 @@ function _typeof(obj) {
     var BOM = "\uFEFF"; // Add BOM to text for open in excel correctly
 
     if (_window.Blob && _window.URL && _window.URL.createObjectURL) {
-      var csvData = new Blob([BOM + text], {
+      var data = new Blob([BOM + text], {
         type: mime,
       });
-      return URL.createObjectURL(csvData);
+      return URL.createObjectURL(data);
     } else {
+      var type = mime.slice(mime.lastIndexOf("/"));
       return (
-        "data:attachment/csv;charset=utf-8," + BOM + encodeURIComponent(text)
+        "data:attachment".concat(type, ";charset=utf-8,") +
+        BOM +
+        encodeURIComponent(text)
       );
     }
   }
@@ -660,10 +663,10 @@ function _typeof(obj) {
       oWin.close();
     } else if (has("ie") === 10 || isIE11() || isEdge()) {
       var BOM = "\uFEFF";
-      var csvData = new Blob([BOM + text], {
+      var data = new Blob([BOM + text], {
         type: mime,
       });
-      navigator.msSaveBlob(csvData, filename);
+      navigator.msSaveBlob(data, filename);
     } else {
       var link = _document.createElement("a");
 
